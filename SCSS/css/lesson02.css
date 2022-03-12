@@ -1,0 +1,27 @@
+body {
+  background-color: #ddd;
+}
+
+#box1 {
+  background-color: #ddd;
+}
+
+@media screen and (max-width: 100px) {
+  #box1 {
+    font-size: 1em;
+  }
+}
+
+#box1 a {
+  color: yellow;
+}
+
+#box1 a:hover {
+  color: red;
+  font-size: clamp();
+}
+
+#box1 > a {
+  color: blue;
+}
+/*# sourceMappingURL=lesson02.css.map */
