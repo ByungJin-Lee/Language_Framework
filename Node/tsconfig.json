@@ -1,0 +1,10 @@
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "outDir": "./dist"
+  },
+  "include": ["**/src/*", "생활코딩/src/Router/GetRouter.ts", "생활코딩/src/Router/PostRouter.ts"],
+  "exclude": ["node_modules"]
+}
