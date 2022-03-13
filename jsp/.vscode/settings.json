@@ -1,0 +1,14 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "/Users/byungjin/Lab/tools/apache-tomcat-10.0.17/bin/**/*.jar",
+            "/Users/byungjin/Lab/tools/apache-tomcat-9.0.59/lib/servlet-api.jar"
+        ],
+        "exclude": [
+            "/Users/byungjin/Lab/tools/apache-tomcat-10.0.17/bin/bootstrap.jar",
+            "/Users/byungjin/Lab/tools/apache-tomcat-10.0.17/bin/commons-daemon.jar",
+            "/Users/byungjin/Lab/tools/apache-tomcat-10.0.17/bin/tomcat-juli.jar"
+        ]
+    }
+}
