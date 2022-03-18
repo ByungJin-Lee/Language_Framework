@@ -3,3 +3,4 @@ __pycache__
 /target
 workspace.code-workspace
 env
+migrations
