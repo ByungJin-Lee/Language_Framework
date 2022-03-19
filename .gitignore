@@ -4,3 +4,4 @@ __pycache__
 workspace.code-workspace
 env
 migrations
+.db
