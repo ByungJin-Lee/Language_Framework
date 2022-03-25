@@ -5,3 +5,5 @@ workspace.code-workspace
 env
 migrations
 *.db
+bin
+obj
