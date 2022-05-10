@@ -1,0 +1,44 @@
+:root{
+    /* Navi */
+    --navi-height: 2em;
+    --navi-bgcolor: #fff;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #222327;
+}
+
+* {
+    margin:0px;
+    padding:0px;
+    list-style: none;
+}
+
+#container {
+    height: 200vh;
+}
+
+#navi {
+    height: var(--navi-height);
+    width: 100%;
+    position: fixed;
+    bottom: 10px;
+}
+
+#navi .content {
+    background-color: var(--navi-bgcolor);
+    width: 480px;
+    border-radius: 13px;
+}
+
+.center-child{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
