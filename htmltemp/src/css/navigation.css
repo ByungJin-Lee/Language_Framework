@@ -5,6 +5,26 @@
     font-style: normal;
 }
 
+:root{
+    --content-width:750px;
+}
+
+@media screen and (max-width: 800px) {
+    :root {
+        --content-width:410px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    :root {
+        --content-width:350px;
+    }
+}
+
+::selection {
+    background-color: lightpink;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -62,7 +82,7 @@ body {
 }
 
 #navi .inner {
-    box-shadow: 0 0 3px gray;
+    box-shadow: 0 0 5px gray;
     padding: var(--navi-padding);
     background-color: var(--navi-bgcolor);
     border-radius: 13px;
@@ -113,6 +133,7 @@ body {
 #navi .inner:hover .preview {
     max-width: 0px;
     padding: 5px 0px;
+    transform: rotate(90deg);
 }
 
 @media screen and (max-width: 500px) {
@@ -140,7 +161,7 @@ header .inner {
     background-color: var(--header-bgcolor);
     box-shadow: 0px 1px 10px .1px rgb(105, 105, 105);
     padding: 0.5em 0;
-    width: calc(100% - 4em);
+    width: var(--content-width);
 }
 
 header a {
@@ -155,15 +176,29 @@ header a {
 
 /* #region Banner */
 #banner {
+    --banner-marginTop: 1em;
+    --banner-title-size: 2em;
+    --banner-bgcolor: rgb(255, 210, 126);
 
+    margin-top: var(--banner-marginTop);
+
+    text-align: center;
+}
+
+#banner .inner {
+    background-color: var(--banner-bgcolor);
+    width: var(--content-width);
+    padding: 2em 0;
+    font-size: var(--banner-title-size);
+    font-weight: bold;
+    box-shadow: 0px 0px 5px .2px #fff;
 }
 /* #endregion Banner */
 
 /* #region Content */
 #content {
     --content-margin:2em 0em;
-    --card-marginTop:3em;
-    --card-width:750px;
+    --card-margin:2.3em;
     --card-bgcolor:#fff;
     --card-title-bgcolor:#fff;
     --card-paddingBottom: 1.5em;
@@ -180,8 +215,8 @@ header a {
 }
 
 #content .card {
-    margin: var(--card-marginTop);
-    max-width: var(--card-width);
+    margin: var(--card-margin);
+    max-width: var(--content-width);
     background-color: var(--card-bgcolor);
     padding-bottom: var(--card-paddingBottom);
     width: 100%;
@@ -204,10 +239,9 @@ header a {
     left : 0px;
 }
 
-#content .card p {
-    padding-top: var(--card-subtitle-paddingTop);
-    font-size: var(--card-subtitle-size);
-    font-weight: bold;
+#content .card .post img{
+    width: 100%;
+    height: 100%;
 }
 
 #content .card .row {
@@ -244,26 +278,50 @@ header a {
 }
 
 #content .card form {
+    --submit-bgcolor:#fff;
+    --submit-hover-bgcolor:rgb(228, 228, 228);
+
     margin: 1em;
 }
 
-#content .card form input {
+#content .card form table {
+    width: 75%;
+    border-spacing: 10px;
+}
+
+#content .card form input:not([type="submit"]) {
     width: 100%;
+    background-color: rgb(221, 221, 221);
+    border: none;
+    border-radius: 5px;
+    padding: 6px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+#content .card form input[type="submit"]{
+    background-color: var(--submit-bgcolor);
+    border-radius: 8px;
+    padding: .5em 2em;
+    font-weight: bold;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+#content .card form input[type="submit"]:hover {
+    background-color: var(--submit-hover-bgcolor);
+}
+
+#content .card form input:not([type="submit"]):focus {
+    box-shadow: 0px 0px 4px .2px coral;
 }
 
 @media screen and (max-width: 800px) {
     #content {
-        --card-width:410px;
         --row-template: 100px auto;
     }
     #content .card .row .comment {
         display: none;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    #content {
-        --card-width:350px;
     }
 }
 /* #endregion Content */
@@ -271,8 +329,13 @@ header a {
 /* #region Footer */
 footer {
     --footer-bgcolor:#222327;
-    --footer-padding: 4em;
+    --footer-padding: 3em 3em 6em 3em;
+    --footer-color: rgb(181, 181, 181);
     background-color: var(--footer-bgcolor);
     padding: var(--footer-padding);
+    text-align: center;
+}
+footer p, a {
+    color:var(--footer-color)
 }
 /* #endregion Footer */
