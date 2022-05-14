@@ -171,6 +171,7 @@ header a {
     --card-title-padding: 1em;
     --row-padding:1.5em 0px;
     --row-margin: 0 1.5em;
+    --row-template: 100px 170px auto;
     --card-subtitle-size: 1.2em;
     --card-subtitle-paddingTop:1em;
 
@@ -212,10 +213,9 @@ header a {
 #content .card .row {
     display: grid;
     margin:var(--row-margin);
-    grid-template-columns: 75px 20px 170px auto;
+    grid-template-columns: var(--row-template);
     border-bottom: 1px solid lightgray;
 }
-
 
 #content .card .row[data-holiday="true"] .day-number {
     color: red;
@@ -225,7 +225,7 @@ header a {
     color: blue;
 }
 
-#content .card .row .day-number, .day-of-week, .day-title, .comment {
+#content .card .row .day-number, .day-title, .comment {
     padding: var(--row-padding);
 }
 
@@ -235,11 +235,13 @@ header a {
     overflow: hidden;
 }
 
-#content .card .row .day-number::after { content: '일';}
+#content .card .row .day-title[href] { 
+    text-decoration: underline; 
+}
 
-#content .card .row .day-title[href] { text-decoration: underline; }
-
-#content .card .title label::after{ content: '월'; }
+#content .card .title label::after{ 
+    content: '월'; 
+}
 
 #content .card form {
     margin: 1em;
@@ -252,12 +254,8 @@ header a {
 @media screen and (max-width: 800px) {
     #content {
         --card-width:410px;
+        --row-template: 100px auto;
     }
-
-    #content .card .row {
-        grid-template-columns: 75px 60px auto;
-    }
-
     #content .card .row .comment {
         display: none;
     }
@@ -268,7 +266,6 @@ header a {
         --card-width:350px;
     }
 }
-
 /* #endregion Content */
 
 /* #region Footer */
