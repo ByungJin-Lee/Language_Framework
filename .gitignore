@@ -7,3 +7,4 @@ migrations
 *.db
 bin
 obj
+.DS_Store
