@@ -5,22 +5,6 @@
     font-style: normal;
 }
 
-:root{
-    --content-width:750px;
-}
-
-@media screen and (max-width: 800px) {
-    :root {
-        --content-width:410px;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    :root {
-        --content-width:350px;
-    }
-}
-
 ::selection {
     background-color: lightpink;
 }
@@ -58,8 +42,42 @@ body {
 
 /* #region Container */
 #container {
+    --con-inner-width:750px;
+
     background-color: wheat;
 }
+
+@media screen and (max-width: 940px) {
+    #container {
+        --con-inner-width:580px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #container {
+        --con-inner-width:500px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #container {
+        --con-inner-width:450px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #container {
+        --con-inner-width:430px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #container {
+        --con-inner-width:320px;
+    }
+}
+
+
 /* #endregion */
 
 /* #region Navigation */
@@ -161,7 +179,7 @@ header .inner {
     background-color: var(--header-bgcolor);
     box-shadow: 0px 1px 10px .1px rgb(105, 105, 105);
     padding: 0.5em 0;
-    width: var(--content-width);
+    width: var(--con-inner-width);
 }
 
 header a {
@@ -187,11 +205,15 @@ header a {
 
 #banner .inner {
     background-color: var(--banner-bgcolor);
-    width: var(--content-width);
-    padding: 2em 0;
+    width: var(--con-inner-width);
+    height: var(--con-inner-width);
+    line-height: var(--con-inner-width);
+    /* padding: 2em 0; */
     font-size: var(--banner-title-size);
     font-weight: bold;
     box-shadow: 0px 0px 5px .2px #fff;
+
+    border-radius: 50%;
 }
 /* #endregion Banner */
 
@@ -206,6 +228,7 @@ header a {
     --card-title-padding: 1em;
     --row-padding:1.5em 0px;
     --row-margin: 0 1.5em;
+    --row-hover-bgcolor:rgba(232, 232, 232, 0.7);
     --row-template: 100px 170px auto;
     --card-subtitle-size: 1.2em;
     --card-subtitle-paddingTop:1em;
@@ -216,11 +239,11 @@ header a {
 
 #content .card {
     margin: var(--card-margin);
-    max-width: var(--content-width);
+    max-width: var(--con-inner-width);
     background-color: var(--card-bgcolor);
     padding-bottom: var(--card-paddingBottom);
     width: 100%;
-    box-shadow: 0 0 7px .2px rgb(102, 102, 102);
+    box-shadow: 0 0 7px .2px rgba(102, 102, 102, 0.5);
 }
 
 #content .card .title,  #content .card .title label{
@@ -249,6 +272,10 @@ header a {
     margin:var(--row-margin);
     grid-template-columns: var(--row-template);
     border-bottom: 1px solid lightgray;
+}
+
+#content .card .row:hover {
+    background-color: var(--row-hover-bgcolor);
 }
 
 #content .card .row[data-holiday="true"] .day-number {
