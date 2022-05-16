@@ -4,6 +4,11 @@
     src: url('../font/NanumGothic-Regular.ttf');
     font-style: normal;
 }
+@font-face {
+    font-family: 'NanumG';
+    src: url('../font/NanumGothic-Bold.ttf');
+    font-style: bold;
+}
 
 ::selection {
     background-color: lightpink;
@@ -43,8 +48,9 @@ body {
 /* #region Container */
 #container {
     --con-inner-width:750px;
+    --con-inner-bgcolor:#92B4EC;
 
-    background-color: wheat;
+    background-color: var(--con-inner-bgcolor);
 }
 
 @media screen and (max-width: 940px) {
@@ -107,10 +113,10 @@ body {
 }
 
 #navi .inner .preview{
+    max-width: 25px;
     padding: var(--item-padding);
     transition: max-width var(--navi-ani-duration);
     overflow: hidden;
-    max-width: 100px;
 }
 
 #navi .inner .preview img{
@@ -151,7 +157,6 @@ body {
 #navi .inner:hover .preview {
     max-width: 0px;
     padding: 5px 0px;
-    transform: rotate(90deg);
 }
 
 @media screen and (max-width: 500px) {
@@ -165,8 +170,8 @@ body {
 /* #region Header */
 header {
     --header-height: 4em;
-    --header-color:#000;
-    --header-bgcolor:#fff;
+    --header-color:#fff;
+    --header-bgcolor: inherit;
     --header-padding: 0.5em;
     --header-fontsize: 1.6em;
     height: var(--header-height);
@@ -177,8 +182,9 @@ header {
 header .inner {
     padding: 0.5em 0;
     background-color: var(--header-bgcolor);
-    box-shadow: 0px 1px 10px .1px rgb(105, 105, 105);
+    box-shadow: 0px 1px 10px .1px rgba(135, 135, 135, 0.5);
     padding: 0.5em 0;
+    border-radius: 10px;
     width: var(--con-inner-width);
 }
 
@@ -194,6 +200,8 @@ header a {
 
 /* #region Banner */
 #banner {
+    opacity: 0;
+
     --banner-marginTop: 1em;
     --banner-title-size: 2em;
     --banner-bgcolor: rgb(255, 210, 126);
@@ -219,9 +227,9 @@ header a {
 
 /* #region Content */
 #content {
-    --content-margin:2em 0em;
-    --card-margin:2.3em;
+    --quarter-padding: 120px 0px;
     --card-bgcolor:#fff;
+    --card-margin: 0 0 4em 0;
     --card-title-bgcolor:#fff;
     --card-paddingBottom: 1.5em;
     --card-title-size:1.4em;
@@ -230,11 +238,63 @@ header a {
     --row-margin: 0 1.5em;
     --row-hover-bgcolor:rgba(232, 232, 232, 0.7);
     --row-template: 100px 170px auto;
-    --card-subtitle-size: 1.2em;
-    --card-subtitle-paddingTop:1em;
 
-    margin: var(--content-margin);
     text-align: center;
+}
+
+#content .quarter {
+    --quarter-wave-height:200px;
+    --quarter-1th-bgcolor:#FFE69A;
+    --quarter-2th-bgcolor:#FAFDD6;
+    --quarter-3th-bgcolor:#E4E9BE;
+    --quarter-4th-bgcolor:#B9F8D3;
+
+    position: relative;
+    top:0px;
+    left: 0px;
+    padding: var(--quarter-padding);
+    width: 100%;
+}
+
+#content .quarter::before, #content .quarter::after {
+    content: '';
+    position: absolute;
+    background-color: inherit;
+    width: 50%;
+    height: var(--quarter-wave-height);
+}
+
+#content .quarter:not(:first-child):before {
+    align-self: flex-start;
+    top:calc(-1 * var(--quarter-wave-height)/2);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 33%;
+}
+#content .quarter:not(:last-child)::after {
+    z-index: 2;
+    align-self: flex-end;
+    bottom: calc(-1 * var(--quarter-wave-height)/2);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 25%;
+}
+
+#content .quarter:nth-child(1){
+    background-color: var(--quarter-1th-bgcolor);
+}
+
+#content .quarter:nth-child(2){
+    background-color: var(--quarter-2th-bgcolor);
+}
+
+#content .quarter:nth-child(3){
+    background-color: var(--quarter-3th-bgcolor);
+}
+
+#content .quarter:nth-child(4){
+    background-color: var(--quarter-4th-bgcolor);
+}
+#content .quarter:nth-child(5){
+    background-color: var(--con-inner-bgcolor);
 }
 
 #content .card {
@@ -243,6 +303,7 @@ header a {
     background-color: var(--card-bgcolor);
     padding-bottom: var(--card-paddingBottom);
     width: 100%;
+    z-index: 3;
     box-shadow: 0 0 7px .2px rgba(102, 102, 102, 0.5);
 }
 
