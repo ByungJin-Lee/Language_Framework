@@ -171,9 +171,10 @@ body {
 header {
     --header-height: 4em;
     --header-color:#fff;
-    --header-bgcolor: inherit;
+    --header-bgcolor: #FFE69A;
     --header-padding: 0.5em;
     --header-fontsize: 1.6em;
+    background-color: var(--header-bgcolor);
     height: var(--header-height);
     max-height: var(--header-height);
     padding: 0.6em 0;
@@ -197,33 +198,6 @@ header a {
     font-weight: bold;
 }
 /* #endregion Header */
-
-/* #region Banner */
-#banner {
-    opacity: 0;
-
-    --banner-marginTop: 1em;
-    --banner-title-size: 2em;
-    --banner-bgcolor: rgb(255, 210, 126);
-
-    margin-top: var(--banner-marginTop);
-
-    text-align: center;
-}
-
-#banner .inner {
-    background-color: var(--banner-bgcolor);
-    width: var(--con-inner-width);
-    height: var(--con-inner-width);
-    line-height: var(--con-inner-width);
-    /* padding: 2em 0; */
-    font-size: var(--banner-title-size);
-    font-weight: bold;
-    box-shadow: 0px 0px 5px .2px #fff;
-
-    border-radius: 50%;
-}
-/* #endregion Banner */
 
 /* #region Content */
 #content {
